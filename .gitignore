@@ -23,6 +23,7 @@
 *.tar
 *.zip
 
+doc/
 SiftGPU/
 ann_1.1.2/
 ann_1.1.2.tar.gz

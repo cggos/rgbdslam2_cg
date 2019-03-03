@@ -4,17 +4,14 @@ Modified version of **[RGBDSLAMv2](http://felixendres.github.io/rgbdslam_v2/)** 
 
 * RGBD-SLAM Implements a SLAM-Frontend based on structure from motion using visual features to identify keypoints in the RGBD image of a kinect. It makes use of the g2o SLAM backend to compute a globally consistent trajectory from the individual transformations provided by the frontend.
 
-* a state-of-the-art SLAM system for RGB-D cameras, e.g., the Microsoft
-Kinect or the Asus Xtion Pro Live.  You can use it to create 3D point clouds or
-OctoMaps.
+* a state-of-the-art SLAM system for RGB-D cameras, e.g., the Microsoft Kinect or the Asus Xtion Pro Live.  You can use it to create 3D point clouds or OctoMaps.
 
-* based on the open source projects, ROS, OpenCV, OpenGL, PCL,
-OctoMap, SiftGPU, g2o, and more.
+* based on the open source projects, ROS, OpenCV, OpenGL, PCL, OctoMap, SiftGPU, g2o, and more.
 
 -----
 
 <div align=center>
-<img src="http://raw.githubusercontent.com/felixendres/rgbdslam_v2/hydro/media/rgbdslamv2_fr2desk.jpg" alt="RGBDSLAM on the RGB-D Benchmark Dataset" width="600">
+<img src="./rgbdslamv2_fr2desk.jpg" alt="RGBDSLAM on the RGB-D Benchmark Dataset">
 </div>
 
 # Prerequisites
@@ -36,28 +33,26 @@ cd rgbdslam_v2_cg & bash install_deps.sh # gicp and SiftGPU
 cd ../../
 rosdep update
 rosdep install rgbdslam
-catkin_make
+source devel/setup.bash
+nice catkin_make -DCMAKE_BUILD_TYPE=Release -j3
 ```
 
 # Run
 
-* Usage with GUI
+```sh
+rosbag play rgbd_dataset_freiburg1_xyz.bag # with dataset
+# or
+roslaunch openni_camera openni_node.launch # with live camera
 
-  ```sh
-  roslaunch openni_camera openni_node.launch
-  roslaunch rgbdslam rgbdslam.launch
-  ```
-
-* Usage without GUI
-
-  ```sh
-  roslaunch rgbdslam headless.launch
-  ```
+roslaunch rgbdslam rgbdslam.launch
+```
 
 # Docs
 
+API Doc with **rosdoc_lite** in ROS:
+
 ```sh
-rosrun rosdoc rosdoc rgbdslam
+rosdoc_lite <path-to-ws_rgbdslam/src/rgbdslam_v2_cg>
 ```
 
 The main classes are the following:  
