@@ -1,4 +1,4 @@
-# rgbdslam_v2_cg
+# rgbdslam2_cg
 
 Modified version of **[RGBDSLAMv2](http://felixendres.github.io/rgbdslam_v2/)** which from http://github.com/felixendres/rgbdslam_v2/archive/kinetic.zip
 
@@ -28,8 +28,8 @@ The compilation may take a lot of memory, particularly if the environment variab
 ```sh
 mkdir ws_rgbdslam/src -p
 cd ws_rgbdslam/src
-git clone https://github.com/cggos/rgbdslam_v2_cg.git
-cd rgbdslam_v2_cg & bash install_deps.sh # gicp and SiftGPU
+git clone https://github.com/cggos/rgbdslam2_cg.git
+cd rgbdslam2_cg & bash install_deps.sh # gicp and SiftGPU
 cd ../../
 rosdep update
 rosdep install rgbdslam
@@ -52,7 +52,7 @@ roslaunch rgbdslam rgbdslam.launch
 API Doc with **rosdoc_lite** in ROS:
 
 ```sh
-rosdoc_lite <path-to-ws_rgbdslam/src/rgbdslam_v2_cg>
+rosdoc_lite <path-to-ws_rgbdslam/src/rgbdslam2_cg>
 ```
 
 The main classes are the following:  
